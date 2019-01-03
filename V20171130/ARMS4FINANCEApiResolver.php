@@ -9,11 +9,11 @@ use AlibabaCloud\ApiResolverTrait;
  *
  * @package   AlibabaCloud\ARMS4FINANCE\V20171130
  *
- * @method static ARMS4FINANCEApiResolver aRMS4FINANCEApiResolver(array $options = [])
- * @method static ARMSQueryDataSet aRMSQueryDataSet(array $options = [])
- * @method static WhereInDimQuery whereInDimQuery(array $options = [])
+ * @method ARMS4FINANCEApiResolver aRMS4FINANCEApiResolver(array $options = [])
+ * @method ARMSQueryDataSet aRMSQueryDataSet(array $options = [])
+ * @method WhereInDimQuery whereInDimQuery(array $options = [])
  */
-class ARMS4FINANCE
+class ARMS4FINANCEApiResolver
 {
     use ApiResolverTrait;
 }
