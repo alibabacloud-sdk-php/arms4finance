@@ -2,7 +2,19 @@
 
 namespace AlibabaCloud\ARMS4FINANCE\V20171130;
 
+use AlibabaCloud\ApiResolverTrait;
 use AlibabaCloud\Rpc;
+
+/**
+ * Resolve Api based on the method name.
+ *
+ * @method WhereInDimQuery whereInDimQuery(array $options = [])
+ * @method ARMSQueryDataSet aRMSQueryDataSet(array $options = [])
+ */
+class ARMS4FINANCEApiResolver
+{
+    use ApiResolverTrait;
+}
 
 class V20171130Rpc extends Rpc
 {
@@ -39,14 +51,14 @@ class WhereInDimQuery extends V20171130Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $measures
      *
      * @return $this
      */
-    public function withMeasures(array $value)
+    public function withMeasures(array $measures)
     {
-        $this->data['Measures'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['Measures'] = $measures;
+        foreach ($measures as $i => $iValue) {
             $this->options['query']['Measures.' . ($i + 1)] = $iValue;
         }
 
@@ -54,14 +66,14 @@ class WhereInDimQuery extends V20171130Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $whereInValues
      *
      * @return $this
      */
-    public function withWhereInValues(array $value)
+    public function withWhereInValues(array $whereInValues)
     {
-        $this->data['WhereInValues'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['WhereInValues'] = $whereInValues;
+        foreach ($whereInValues as $i => $iValue) {
             $this->options['query']['WhereInValues.' . ($i + 1)] = $iValue;
         }
 
@@ -69,16 +81,16 @@ class WhereInDimQuery extends V20171130Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $dimensions
      *
      * @return $this
      */
-    public function withDimensions(array $value)
+    public function withDimensions(array $dimensions)
     {
-        $this->data['Dimensions'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Dimensions.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Dimensions.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Dimensions'] = $dimensions;
+        foreach ($dimensions as $depth1 => $depth1Value) {
+            $this->options['query']['Dimensions.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Dimensions.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -105,14 +117,14 @@ class ARMSQueryDataSet extends V20171130Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $measures
      *
      * @return $this
      */
-    public function withMeasures(array $value)
+    public function withMeasures(array $measures)
     {
-        $this->data['Measures'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['Measures'] = $measures;
+        foreach ($measures as $i => $iValue) {
             $this->options['query']['Measures.' . ($i + 1)] = $iValue;
         }
 
@@ -120,16 +132,16 @@ class ARMSQueryDataSet extends V20171130Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $dimensions
      *
      * @return $this
      */
-    public function withDimensions(array $value)
+    public function withDimensions(array $dimensions)
     {
-        $this->data['Dimensions'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Dimensions.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Dimensions.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Dimensions'] = $dimensions;
+        foreach ($dimensions as $depth1 => $depth1Value) {
+            $this->options['query']['Dimensions.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Dimensions.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
